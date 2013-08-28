@@ -1,0 +1,224 @@
+html, body{
+	min-height: 100%;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+body{
+	background-color: #4468B4;
+}
+
+img.bg {
+        /* Set rules to fill background */
+        min-height: 700px;
+        min-width: 1024px;
+
+        /* Set up proportionate scaling */
+        width: 100%;
+        height: auto;
+
+        /* Set up positioning */
+        position: fixed;
+        top: 0;
+        left: 0;
+}
+
+.step-links{
+	font-size: small;
+}
+
+.pagination{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	text-align: right;
+}
+
+.footer{
+	position: absolute;
+	color: #FFFFFF;
+	font-size: smaller;
+	margin: auto;
+	text-align: center;
+	bottom: 0px;
+	width: 100%;
+}
+
+.clearDiv{
+	clear: both;
+}
+
+.clearfix:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+.clearfix {display: inline-block;}
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+
+.menuButton {
+	height: 3em;
+	width: 100%;
+	border-right: solid 1px;
+	border-bottom: solid 1px;
+	display: table-cell;
+	vertical-align: middle;
+	padding-top: 1.5em;
+}
+
+.pageTitle {
+	font-weight: bold;
+	font-size: larger;
+	display: block;
+}
+
+div.menuButton {
+	border: none;
+}
+
+.menuButton .menuText{
+	font-weight: bold;
+	vertical-align: middle;
+	padding-left: 10px;
+}
+
+#mainMenu a:link,
+#mainMenu a:visited,
+#mainMenu a:hover,
+#mainMenu a:active{
+	text-decoration: none;
+	color: black;
+}
+
+.menuButton.active{
+	color: red;
+	border-right: none;
+	border-bottom: 1px solid black;
+}
+
+.menuButton:hover{
+	background-color: #EEEEEE;
+}
+
+div.menuButton.active{
+	border: none;
+}
+
+.fullDiv{
+	width: 100%;
+	height: 100%;
+}
+
+.pageName{
+	font-size: xx-large;
+	padding-bottom: 1em;
+	display: block !important;
+	width: 100%;
+}
+
+#mainPanel{
+	position: relative;
+	margin-bottom: 60px;
+}
+#mainBanner{
+	text-align: center;
+	width: 100%;
+}
+
+#userPanel{
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 5px;
+	font-size: smaller;
+	text-align: right;
+}
+
+#mainMenu{
+	width: 150px;
+	display: table;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+}
+
+#mainHolder{
+	position: relative;
+	min-height: 27em;
+}
+
+#menuTop{
+	height: 2em;
+	width: 100%;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+#menuBottom{
+	border-right: 1px solid black;
+	width: 100%;
+}
+
+div#menuBottom{
+	border: none;
+}
+
+#mainWrapper{
+	position: relative;
+	width:950px;
+	min-height: 500px;
+	margin: auto;
+}
+
+#mainWrapper div{
+	float: left;
+	display: inline;
+}
+
+#mainContent{
+	position: relative;
+	margin-top: 200px;
+	background-color: #FFFFFF;
+	padding: 20px;
+}
+
+#mainDetail{
+	width: 780px;
+	float: left;
+	display: inline;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-left: 150px;
+	position: relative;
+}
+
+#menuTable{
+	height: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 150px;
+}
+#menuTable tr,
+#menuTable td{
+	padding: 0;
+}
+
+#menuContentHolder{
+	height: 20em;
+}
+
+#borderTop{
+	height: 0;
+	width: 800px;
+	margin-left: -10px;
+	border-top: solid 1px black;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+        img.bg {
+                left: 50%;
+                margin-left: -512px;   /* 50% */
+        }
+}

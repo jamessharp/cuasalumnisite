@@ -1,0 +1,22 @@
+{% extends "events/events_base.html" %}
+
+{% block eventCanvas %}
+<div id="eventMonthList">
+	<table id="eventMonthListTable">
+	{% for event in events_month %}
+		<tr>
+			<td class="eventMonthListTitle">
+			<span class="eventMonthListTitleText">{{event.title}}</span>
+			<span class="eventMoreDetails"><a href="{% url event_detail event.id %}">More Details</a></span>
+			</td>
+			<td class="eventMonthListDates">
+			{{event.start_time|date:"M j H:i"}}{% if event.end_time != event.start_time %} to {{event.end_time|date:"M j H:i"}}{% endif %}
+			</td>
+			<td class="eventMonthListSummary">
+			{{event.description|safe|truncatewords_html:15}}
+			</td>
+		</tr>
+	{% endfor %}
+	</table>
+</div>
+{% endblock %}

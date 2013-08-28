@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{article.title}} - CUAS Alumni}{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/media/css/news.css" />
+{% endblock %}
+
+{% block main %}
+<div id="newsBlock">
+	<div id="newsTitle" class="newsDetail pageName">{{article.title}}</div>
+	<span class="newsArticleAuthor">{{article.author.first_name}} {{article.author.last_name}}</span>
+	<span class="newsArticleDate">{{article.time|date:"H:i d/m/y"}}</span>
+	<div class="newsArticleText">{{article.text|safe|linebreaks}}</div>
+</div>
+{% endblock %}

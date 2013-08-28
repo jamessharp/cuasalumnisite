@@ -1,0 +1,15 @@
+{% extends "events/events_base.html" %}
+
+{% block eventCanvas %}
+<div id="eventDetail">
+	<div id="eventDetailTitle">
+	{{event.title}}
+	</div>
+	<div id="eventDetailDate">
+	{{event.start_time|date:"l j F Y, H:i"}}{% if event.end_time != event.start_time %} to {{event.end_time|date:"l j F Y, H:i"}}{% endif %}
+	</div>
+	<div id="eventDetailText">
+	{{ event.description|safe|linebreaks }}
+	</div>
+</div>
+{% endblock %}

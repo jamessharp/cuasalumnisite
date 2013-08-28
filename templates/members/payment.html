@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Payment - CUAS Alumni{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/media/css/members.css" />
+{% endblock %}
+
+{% block main %}
+
+<div id='paymentContainer'>
+<span class="pageTitle">Payment</span>
+{% if payment_method_changed %}
+<div class="paymentChanged">{{gSetting_paymentChangedSuccessful}}</div>
+{% endif %}
+
+<div id="paymentIntroText">
+	<p>Hi {{request.user.first_name}}</p>
+	{{gSetting_paymentIntroText}}
+</div>
+
+<div id="paymentDetailText">
+{% if payment_method == "None" %}
+{{gSetting_noPaymentText}}
+{% else %}{% if payment_method == "Cheque" %}
+	{{gSetting_chequePaymentText}}
+{% else %}{% if payment_method == "Online" %}
+	{{gSetting_onlinePaymentText}}
+
+	<!-- <div class="paypalForm">
+	{{gSetting_paypalAnnualSubscriptionText}}
+	{{paypal_forms.subscription_form}}
+	</div>-->
+	<div class="paypalForm">
+	{{gSetting_paypalUpFrontText}}
+	{{paypal_forms.up_front_form}}
+	</div>
+	
+{% else %}
+	{{gSetting_genericErrorText}}
+{% endif %}{% endif %}{% endif %}
+</div>
+
+<div id="changePayment">
+<div id="changePaymentText">{{gSetting_changePaymentText}}</div>
+<form action="{% url payment_url %}" method="post">{% csrf_token %}
+<table>
+{% for field in payment_form %}
+<tr class="memberFormRow" id="tr_{{ field.name }}">
+	<td class="memberFormLabel{% if field.field.required %} formRequired{% endif %}">
+		{{ field.label_tag }}
+	</td>
+	<td class="memberFormField">
+		{{ field }}
+	</td>
+	<td class="memberFormHelp">
+		{{ field.help_text }}
+	</td>
+	<td class="memberFormErrors">
+		{{ field.errors }}
+	</td>
+</tr>
+{% endfor %}
+</table>
+<input type="submit" value="Change" />
+</form>
+</div>
+</div>
+
+{% endblock %}

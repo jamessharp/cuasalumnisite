@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Events - CUAS Alumni{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/media/css/events.css" />
+{% endblock %}
+
+{% block main %}
+	<div id="eventCalendar">
+		<div id="eventMonthSelector">
+			<div id="eventYearContainer">
+			<table id="eventYearSelector"><tr>
+			<td class="prevYear"><a href="{% url event_yearmonth year.prev current_month.int %}"><div class="fullDiv">{{year.prev}}</div></a></td>
+			<td class="thisYear"><a href="{% url event_year year.this %}"><div class="fullDiv">{{year}}</div></a></td>
+			<td class="nextYear"><a href="{% url event_yearmonth year.next current_month.int %}"><div class="fullDiv">{{year.next}}</div></a></td>
+			</tr></table>
+			</div>
+			<div id="eventMonthContainer">
+			<table id="eventMonthSelector">
+			<tr>
+			{% for month in months %}
+				<td class="month{% if month.str == current_month.str %} current{% endif %}">
+				<a href="{% url event_yearmonth year.this month.int %}"><div class="fullDiv">{{ month }}</div></a>
+				</td>
+				{% if month.int|divisibleby:"4" %}</tr><tr>{% endif %}
+			{% endfor %}
+			</tr>
+			</table>
+			</div>
+		</div>
+		<div id="eventCanvas">
+			{% block eventCanvas %}
+			{% endblock %}
+		</div>
+	</div>
+	<div id="eventSummaryContainer">
+	<div id="eventSummary">
+	<div id="eventSummaryTitle">All future events</div>
+	{% for event in events_all %}
+	<div class="eventSummaryText">{{ event.title }}
+	<span class="eventMoreDetails">{{ event.start_time|date:"M j H:i" }} - {{ event.end_time|date:"M j Y H:i" }}
+	<span class="eventMoreDetails"><a href="{% url event_detail event.id %}">View event</a></span>
+	</div>
+	{% endfor %}
+	</div>
+	</div>
+{% endblock %}

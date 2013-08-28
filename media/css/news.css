@@ -1,0 +1,41 @@
+#newsTitle.newsDetail{
+	padding-bottom: 0;
+}
+
+
+#newsArticleTable td.newsArticleAbout{
+	width: 33%;
+	padding-bottom: 0.5em;
+}
+
+#newsBlock div{
+	float: none;
+}
+
+#newsBlock{
+	width: 100%;
+	padding-bottom: 2em;
+	position: relative;
+	min-height: 18em;
+}
+
+.newsArticleTitle{
+	font-size: medium;
+	font-weight: bold;
+	display: block;
+}
+
+.newsArticleDate,
+.newsArticleAuthor,
+.newsReadArticle{
+	font-size: small;
+	display: block;
+}
+
+.newsArticleSummary{
+	font-size: small;
+}
+
+.newsArticleText{
+	margin-top: 1em;
+}

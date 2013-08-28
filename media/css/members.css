@@ -1,0 +1,63 @@
+.formRequired{
+	font-style: italic;
+}
+
+.subFormTitle,
+.subFormDescription,
+.subForm{
+	display: block !important;
+}
+
+.subFormTitle{
+	font-weight: bold;
+}
+
+.subFormDescription{
+	font-size: smaller;
+}
+
+.subForm{
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	font-size: smaller;
+}
+
+.memberFormErrors{
+	color: red;
+}
+
+#membersSignupText, #membersAccountText{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#membersSignupBlurb, #membersAccountBlurb{
+	display: block;
+}
+
+#paymentContainer div{
+	display: block !important;
+	float: none;
+}
+
+#paymentIntroText{
+	
+}
+
+#paymentDetailText{
+
+}
+
+.paypalForm{
+	padding-top: 1em;
+	display: block !important;
+}
+
+#loginForm{
+	width: 100%;
+}
+
+#passwordResetEmailSent{
+	width: 100%;
+}

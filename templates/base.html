@@ -1,0 +1,93 @@
+{% load base_tags %}
+{% url home_url as home %}
+{% url about_url as about %}
+{% url events_url as events %}
+{% url news_url as news %}
+{% url your_account_url as youraccount %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>{% block title %}Cambridge University Alumni{% endblock %}</title>
+	<meta http-equiv="content-type" 
+		content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="/media/css/base.css" />
+	<link type="text/css" href="/media/css/smoothness/jquery-ui-1.8.13.custom.css" rel="Stylesheet" />
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="/media/js/jquery-ui-1.8.13.custom.min.js"></script>
+	<script type="text/javascript" src="/media/js/base.js"></script>
+	{% block head %}{% endblock %}
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24079005-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+	<img src="/media/images/tutorlarge_bg.jpg" class="bg" alt="" />
+	<div id="mainWrapper" class="clearfix">
+	
+		<div id="mainPanel">
+			<div id="mainContent">
+			<div id="userPanel">
+				{% if user.is_authenticated %}
+					<span id="username">Welcome {{user.first_name}} {{user.last_name}} (<a href="{% url logout_url %}?next={{request.path}}"">Log out</a>)</span>
+				{% else %}
+					<span id="login">Not logged in (<a href="{% url login_url %}?next={{request.path}}"">Log in</a> or <a href="{% url signup_url %}">sign up</a>)</span>
+				{% endif %}
+			</div>
+				<div id="mainBanner">
+					<img src="/media/images/alumnilogo.png" alt="Cambridge University Air Squadron Alumni Association" />
+				</div>
+				<div id="mainHolder">
+				<div id="mainMenu">
+					<table id=menuTable>
+					<tr><td id="menuTop"></td></tr>
+					<tr><td class="menuButton {% active request home %}"><a href="{{home}}"><div class="menuButton {% active request home %}">
+						<span class="menuText">Home</span>
+					</div></a></td></tr>
+					<tr><td class="menuButton {% active request about %}"><a href="{{about}}"><div class="menuButton {% active request about %}">
+						<span class="menuText">About</span>
+					</div></a></td></tr>
+					<!-- <tr><td class="menuButton {% active request news %}"><a href="{{news}}"><div class="menuButton {% active request news %}">
+											<span class="menuText">News</span>
+										</div></a></td></tr> -->
+					<tr><td class="menuButton {% active request events %}"><a href="{{events}}"><div class="menuButton {% active request events %}">
+						<span class="menuText">Events</span>
+					</div></a></td></tr>
+					</tr>
+					{% if user.is_authenticated %}
+					<!-- Logged in user content -->
+					<!--<tr><td class="menuButton {% active request youraccount %}"><a href="{{youraccount}}"><div class="menuButton {% active request youraccount %}">
+						<span class="menuText">Your account</span>
+					</div></a></td></tr>-->
+					{% endif %}
+					<tr id=menuBottom>
+					<td>
+					</td>
+					</tr>
+					</table>
+				</div>
+				<div id="mainDetail" class="clearfix">
+					<div id="borderTop"></div>
+     				{% block main %}{% endblock %}
+     				<div class="clearDiv"></div>
+     			</div>
+     			</div>
+     		</div>
+			<div class="clearDiv"></div>
+     	</div>
+	</div>
+	<!-- <div class="footer">&copy James Sharp 2011</div> -->
+</body>

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Cambridge University Air Squadron Alumni Association{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/media/css/home.css" />
+{% endblock %}
+
+{% block main %}
+<div id="indexHolder">
+	<!-- <div id="indexLatestNews">
+			<div id="indexLatestNewsHeader">Latest News</div>
+			{% for news_item in news_items %}
+				<div class="indexLatestNewsItem">
+					<span class="indexLatestNewsTitle">{{news_item.title}}</span>
+					<span class="indexLatestNewsDate">{{news_item.time}} </span><span class="indexLatestNewsAuthor">by {{news_item.author.first_name}} {{news_item.author.last_name}}</span>
+					<span class="indexLatestNewsArticle">{{news_item.text|safe|truncatewords_html:25}}</span>
+					<span class="indexLatestNewsArticle"><a href="{% url news_detail_url news_item.id %}">Read article</a></span>
+				</div>
+			{% endfor %}
+		</div>
+		 -->
+	<div id="indexBlurb">
+		{{gSetting_homePageBlurb}}
+	</div>
+	<div>
+		{{gSetting_homePageMainText}}
+	</div>
+	<div id="indexUpcomingEvents">
+	<h2 id="indexUpcomingEventsHeader">Upcoming Events</div>
+		{% for events_item in events_items %}
+			<div class="indexUpcomingEventsItem">
+				<span class="indexUpcomingEventsTitle">{{events_item.title}}</span>
+				<span class="indexUpcomingEventsStartTime">{{events_item.start_time}}{% if events_item.end_time != events_item.start_time %} </span><span class="indexUpcomingEventsEndTime">- {{events_item.end_time}}{% endif %}</span>
+				<span class="indexUpcomingEventsArticle">{{events_item.description|safe|truncatewords_html:25}}</span>
+				<span class="indexUpcomingEventsArticle"><a href="{% url event_detail events_item.id %}">More details</a></span>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Your account - CUAS Alumni{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/media/css/members.css" />
+{% endblock %}
+
+{% block main %}
+<div id="membersAccountContainer">
+<div id="membersAccountText">
+<span class="pageName">Your Account</span>
+<span id="membersAccountBlurb">{{gSetting_signupBlurb}}</span>
+</div>
+<div id="membersAccountFormContainer">
+{% if error_text %}<span class='memberFormErrors'>{{gSetting_unexpectedErrVerbose}} {{error_text}}</span>{% endif %}
+<form action="{% url signup_url %}" method="post">{% csrf_token %}
+{% for form in form_list %}
+<span class="subFormTitle">{{form.title}}</span>
+<span class="subFormDescription">{{form.description|safe}}</span>
+<div class="subForm">
+<span class="memberFormErrors">{{ form.non_field_errors }}</span>
+<table class="signupForm">
+{% for field in form %}
+<tr class="memberFormRow" id="tr_{{ field.name }}">
+	<td class="memberFormLabel{% if field.field.required %} formRequired{% endif %}">
+		{{ field.label_tag }}
+	</td>
+	<td class="memberFormField">
+		{{ field }}
+	</td>
+	<td class="memberFormHelp">
+		{{ field.help_text }}
+	</td>
+	<td class="memberFormErrors">
+		{{ field.errors }}
+	</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+{% endfor %}
+<div class="submitButton">
+<input type="submit" value="Change details" />
+</div>
+</form>
+</div>
+{% endblock %}

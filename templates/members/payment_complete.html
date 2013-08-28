@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Payment Complete - CUAS Alumni{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/media/css/members.css" />
+{% endblock %}
+
+{% block main %}
+
+<div id='paymentContainer'>
+<span class="pageTitle">{% if success %}Thankyou! - Payment Complete{% else %}Woops - something seems to have gone wrong!{% endif %}</span>
+<div id="paymentCompleteText">
+{% if success %}
+	{{ gSetting_paymentSuccessText }}
+{% else %}
+	{{ gSetting_paymentFailedText }}	
+{% endif %}
+</div>
+
+<div id="paymentCompleteDetails">
+	<table id="paymentDetailsTable">
+	<tr>
+		<td>Your email address:</td>
+		<td>{{params.payer_email}}</td>
+	</tr>
+	<tr>
+		<td>Membership type:</td>
+		<td>{{params.item_name}}</td>
+	</tr>
+	<tr>
+		<td>Cost:</td>
+		<td>{{params.mc_gross}}</td>
+	</tr>
+	<tr>
+		<td>Payment status:</td>
+		<td>{{params.payment_status}}</td>
+	</tr>
+	<tr>
+		<td>Business:</td>
+		<td>{{params.business}}</td>
+	</tr>	
+	</table>
+</div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,131 @@
+#eventYearContainer a:link,
+#eventYearContainer a:visited,
+#eventYearContainer a:hover,
+#eventYearContainer a:active,
+#eventMonthContainer a:link,
+#eventMonthContainer a:visited,
+#eventMonthContainer a:hover,
+#eventMonthContainer a:active{
+	text-decoration: none;
+	color: black;
+}
+
+.prevYear:hover,
+.nextYear:hover,
+.month:hover{
+	background-color: #EEEEEE;
+}
+
+#eventMonthContainer{
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+#eventMonthSelector{
+	width: 100%;
+}
+
+#eventCalendar{
+	width: 75%;
+	position: relative;
+}
+
+#eventSummary{
+	width: 100%;
+}
+
+#eventSummaryTitle{
+	text-align: center;
+	width: 100%;
+	padding-bottom: 10px;
+}
+
+#eventSummaryContainer{
+	width: 25%;
+	bottom: 0;
+	top: 0;
+	right: 0;
+	position: absolute;
+	min-height: 320px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	border-left: solid 1px black;
+	border-right: solid 1px black;
+	padding-top: 10px;
+}
+
+#eventYearSelector,
+#eventYearContainer{
+	width: 100%
+}
+
+.eventSummaryText{
+	padding-bottom: 10px;
+	width: 80%;
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.prevYear{
+	text-align: center;
+}
+
+.nextYear{
+	text-align: center;
+}
+
+.thisYear{
+	text-align: center;
+	background-color: #DDDDDD; 
+}
+
+.current{
+	background-color: #DDDDDD; 
+}
+
+.month{
+	width: 25%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	display: table-cell;
+}
+
+.eventMonthListTitle{
+	width: 25%;
+}
+
+.eventMonthListTitleText{
+	font-size: small;
+	display: block;
+}
+
+.eventMonthListDates{
+	font-size: small;
+	width: 25%;
+}
+
+.eventMoreDetails{
+	font-size: small;
+	display: block;
+}
+
+.eventMonthListSummary{
+	width: 50%;
+	font-size: small;
+}
+
+#eventDetailTitle{
+	font-size: medium;
+	font-weight: bold;
+	width: 100%;
+}
+
+#eventDetailDate{
+	width: 100%;
+	font-size: small;
+}
+
+#eventDetailText{
+	font-size: small;
+}

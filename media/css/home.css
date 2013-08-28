@@ -1,0 +1,47 @@
+.indexUpcomingEventsItem,
+.indexLatestNewsItem{
+	width: 100%;
+	display: inline-block;
+	padding-top: 10px;
+}
+
+.indexUpcomingEventsTitle,
+.indexLatestNewsTitle{
+	font-weight: bold;
+	display: block;
+	font-size: small;
+}
+
+.indexUpcomingEventsStartTime, .indexUpcomingEventsEndTime,
+.indexLatestNewsAuthor, .indexLatestNewsDate{
+	font-size: x-small;
+}
+
+.indexUpcomingEventsArticle,
+.indexLatestNewsArticle{
+	font-size: smaller;
+	display: block;
+}
+
+#indexHolder{
+	width: 100%;
+}
+
+#indexUpcomingEvents,
+#indexLatestNews{
+	width: 370px;
+	padding: 10px;
+}
+
+#indexUpcomingEventsHeader,
+#indexLatestNewsHeader{
+	width: 100%;
+	display: inline-block;
+	font-size: larger;
+}
+
+#indexBlurb{
+	padding: 10px;
+	text-align: center;
+}
+	

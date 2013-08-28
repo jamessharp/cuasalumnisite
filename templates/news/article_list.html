@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}News - CUAS Alumni{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/media/css/news.css" />
+{% endblock %}
+
+{% block main %}
+<div id="newsBlock">
+	<div id="newsTitle" class="pageName">News</div>
+	<div class="newsArticleBlock">
+		<table id="newsArticleTable">
+		{% for article in article_list.object_list %}
+			<tr>
+				<td class="newsArticleAbout">
+					<span class="newsArticleTitle">{{article.title}}</span>
+					<span class="newsArticleAuthor">{{article.author.first_name}} {{article.author.last_name}}</span>
+					<span class="newsArticleDate">{{article.time|date:"H:i d/m/y"}}</span>
+					<span class="newsReadArticle"> <a href="{% url news_detail_url article.id %}">Read full article</a></span>
+				</td>
+				<td class="newsArticleSummary">
+					{{article.text|truncatewords_html:25|safe}}
+				</td>
+			</tr>
+		{% endfor %}
+		</table>
+	</div>
+	<div class="pagination">
+    <span class="step-links">
+        {% if article_list.has_previous %}
+            <a href="?page={{ article_list.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ article_list.number }} of {{ article_list.paginator.num_pages }}
+        </span>
+
+        {% if article_list.has_next %}
+            <a href="?page={{ article_list.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+</div>
+{% endblock %}
