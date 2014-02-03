@@ -13,10 +13,10 @@ MANAGERS = ADMINS
 
 if DEV:
     _dbname = "cuasalumni_dev"
-    _dbpwd = "c137db67"
+    _dbpwd = "< insert password >"
 else:
     _dbname = "cuasalumni"
-    _dbpwd = "]O43D|r"
+    _dbpwd = "< insert password >"
 
 DATABASES = {
     'default': {
@@ -71,7 +71,7 @@ MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 's7gb0(qh=o=6=xdfj+&vjo(u#6$kr8&s&sh=16*_n#znhar5qs'
+SECRET_KEY = "< insert secret key >"
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -153,17 +153,17 @@ EMAIL_HOST_PASSWORD = 'b0Wv,EL'
 DEFAULT_FROM_EMAIL = 'cuasalumni@cuas-alumni.org.uk'
 SERVER_EMAIL = 'cuasalumni@cuas-alumni.org.uk'
     
-MY_CERT_ID = '92HFNXHSSQJ4L'
+MY_CERT_ID = "< insert cert id >"
 
 # Paypal details
 if DEV:
     PAYPAL_USERNAME = 'james_1310306837_biz@gmail.com'
     PAYPAL_URL = 'https://www.sandbox.paypal.com/cgi-bin/webscr'
-    PAYPAL_PDT_IDENTITY_TOKEN = '8vW2oPts7JI0rmxpCQdAPZ6dRcMCcuJbBr8-9eND3gbFCaQoSqRBiMNRzYO'
+    PAYPAL_PDT_IDENTITY_TOKEN = "< insert token >"
 else:
     PAYPAL_USERNAME = 'paypal@cuas-alumni.org.uk'
     PAYPAL_URL = 'https://www.paypal.com/cgi-bin/webscr'
-    PAYPAL_PDT_IDENTITY_TOKEN = 't4rbPeBa8Uqz7EK50hwixpdJTpNbs7T2HzIlkaPaLlAXwoO_y_ZT7g4Gc5a'
+    PAYPAL_PDT_IDENTITY_TOKEN = "< insert token >"
     
 PAY_NOW_BUTTON_URL = 'https://www.paypalobjects.com/en_GB/i/btn/btn_paynowCC_LG.gif' 
 SUBSCRIBE_BUTTON_URL= 'https://www.paypalobjects.com/en_US/GB/i/btn/btn_subscribeCC_LG.gif'
